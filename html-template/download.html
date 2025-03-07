@@ -1,0 +1,381 @@
+$def with (active, sp_title, current_subdomain, render)
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+        <link rel="icon" href="/static/favicon.ico" />
+        <title>OpenCitations - OpenCitations $sp_title DOWNLOAD page</title>
+
+
+        <!-- Font Awesome -->
+        <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link href="/static/css/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+
+        <!-- YASGUI CSS -->
+        <link href='/static/css/yasgui.css' rel='stylesheet' type='text/css' />
+
+        <!-- Custom styles for this template -->
+        <link href="/static/css/cover.css" rel="stylesheet" />
+
+        <!-- Bootstrap core CSS -->
+        <link href="/static/bootstrap-533/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/static/css/custom.css" class="css">
+        <link rel="stylesheet" href="/static/css/download.css" class="css">
+    </head>
+    <body>
+        
+        $:render.common.header(sp_title, current_subdomain)
+        <main class="container py-5">
+            <!-- Header -->
+            <div class="row mb-5 text-center">
+                <div class="col-12">
+                    <h2 class="display-5 mb-4">
+                        <span class="oc-purple">Open</span><span class="oc-blue">Citations</span> 
+                        <span class="fw-light">Data Downloads</span>
+                    </h2>
+                    <p class="lead mb-0">
+                        Access all data dumps from OpenCitations Meta and OpenCitations Index
+                    </p>
+                    <p class="text-muted">
+                        Data available through <a href="http://figshare.com" target="_blank">Figshare</a> and the <a href="https://archive.org/" target="_blank">Internet Archive</a>
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Two main download buttons -->
+            <div class="row mb-5">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="card h-100 border-0 shadow-sm hover-effect download-card">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-4">
+                                <span class="display-6 oc-purple">Meta</span>
+                            </div>
+                            <p class="card-text">Bibliographic metadata for all publications in the OpenCitations Index</p>
+                            <p><strong>Latest: June 2024 Dump</strong></p>
+                            <p>Includes data on 116M+ bibliographic entities</p>
+                            <a href="#meta" class="btn btn-primary mt-3"><i class="fa fa-download me-2"></i>View Meta Downloads</a>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small class="text-muted">Updated on 2024-06-20</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="card h-100 border-0 shadow-sm hover-effect download-card index-card">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-4">
+                                <span class="display-6 oc-blue">Index</span>
+                            </div>
+                            <p class="card-text">OMID-to-OMID references representing all citations from multiple sources</p>
+                            <p><strong>Latest: July 2024 Dump</strong></p>
+                            <p>Includes data on 2 billion+ citations from various sources</p>
+                            <a href="#index" class="btn btn-primary mt-3"><i class="fa fa-download me-2"></i>View Index Downloads</a>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small class="text-muted">Updated on 2024-07-01</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Detailed sections with downloads -->
+            <div class="row">
+                <div class="col-12">
+                    <!-- Meta section -->
+                    <section id="meta" class="mb-5 py-3">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <h3 class="mb-0">
+                                    <span class="oc-purple">Open</span><span class="oc-blue">Citations</span> Meta
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <p>The <span class="oc-purple">Open</span><span class="oc-blue">Citations</span> Meta database stores and delivers bibliographic metadata for all publications involved in the <span class="oc-purple">Open</span><span class="oc-blue">Citations</span> Index.</p>
+                                
+                                <h4 class="mt-4">Most recent OpenCitations Meta data dump - June 2024</h4>
+                                <p>Released on 2024-06-20, this dataset enhances its previous version by incorporating new data from the <a href="https://crossref.org/snapshots/monthly/2024/03" target="_blank">Crossref March 2024 Dump</a>.</p>
+                                
+                                <div class="card mb-4 bg-light">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Key Statistics</h5>
+                                        <div class="row">
+                                            <div class="col-md-3 col-sm-6 mb-3">
+                                                <div class="text-center p-3">
+                                                    <h3 class="oc-purple">116M+</h3>
+                                                    <p class="mb-0">Bibliographic entities</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-6 mb-3">
+                                                <div class="text-center p-3">
+                                                    <h3 class="oc-purple">348M+</h3>
+                                                    <p class="mb-0">Authors</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-6 mb-3">
+                                                <div class="text-center p-3">
+                                                    <h3 class="oc-purple">715K+</h3>
+                                                    <p class="mb-0">Publication venues</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-6 mb-3">
+                                                <div class="text-center p-3">
+                                                    <h3 class="oc-purple">245K+</h3>
+                                                    <p class="mb-0">Publishers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h5>Download Files</h5>
+                                <div class="table-responsive mb-4">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Type and format</th>
+                                                <th>Archive</th>
+                                                <th>Size</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Metadata (CSV)</td>
+                                                <td><a href="https://doi.org/10.6084/m9.figshare.21747461.v9" class="btn btn-sm btn-outline-primary">Download tar.gz</a></td>
+                                                <td>11G (47G zipped) on ext4</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Metadata and provenance (RDF)</td>
+                                                <td><a href="https://doi.org/10.6084/m9.figshare.21747536.v7" class="btn btn-sm btn-outline-primary">Download tar.gz</a></td>
+                                                <td>44G (145G compressed) on ext4</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BR OMID map (CSV)</td>
+                                                <td><a href="https://doi.org/10.6084/m9.figshare.24427156.v2" class="btn btn-sm btn-outline-primary">Download ZIP</a></td>
+                                                <td>4.4 GB (1.7 GB zipped)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <h5 class="mt-4">Previous dumps</h5>
+                                <div class="accordion" id="meta-previous-dumps">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#meta-dump1">
+                                                Dump created on 2024-04-06
+                                            </button>
+                                        </h2>
+                                        <div id="meta-dump1" class="accordion-collapse collapse" data-bs-parent="#meta-previous-dumps">
+                                            <div class="accordion-body">
+                                                <p>Compared to the previous dump, this one incorporates OpenAlex IDs, leveraging data from the OpenAlex dump.</p>
+                                                <p>Available in <a href="https://doi.org/10.6084/m9.figshare.21747461.v8">CSV (metadata)</a> and <a href="https://doi.org/10.6084/m9.figshare.21747536.v6">RDF (metadata and provenance)</a> formats.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#meta-dump2">
+                                                Dump created on 2023-11-29
+                                            </button>
+                                        </h2>
+                                        <div id="meta-dump2" class="accordion-collapse collapse" data-bs-parent="#meta-previous-dumps">
+                                            <div class="accordion-body">
+                                                <p>Compared to the previous dump, this one adds the metadata contained in the <a href="https://api.japanlinkcenter.org/">Japan Link Center (JaLC)</a>.</p>
+                                                <p>Available in <a href="https://doi.org/10.6084/m9.figshare.21747461.v7">CSV (metadata)</a> format.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#meta-dump3">
+                                                Dump created on 2023-10-24
+                                            </button>
+                                        </h2>
+                                        <div id="meta-dump3" class="accordion-collapse collapse" data-bs-parent="#meta-previous-dumps">
+                                            <div class="accordion-body">
+                                                <p>Compared to the previous dump, this one adds the metadata contained in <a href="https://doi.org/10.5281/zenodo.7845968">OpenAIRE</a> and in the <a href="https://api.crossref.org/snapshots/monthly/2023/09">Crossref dump dated September 2023</a>.</p>
+                                                <p>Available in <a href="https://doi.org/10.6084/m9.figshare.21747461.v5">CSV (metadata)</a> and <a href="https://doi.org/10.6084/m9.figshare.21747536.v5">JSON-LD (metadata and provenance)</a> formats.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#meta-older">
+                                                View older dumps
+                                            </button>
+                                        </h2>
+                                        <div id="meta-older" class="accordion-collapse collapse" data-bs-parent="#meta-previous-dumps">
+                                            <div class="accordion-body">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">
+                                                        <p><strong>2023-06-28:</strong> Adds the metadata from the <a href="https://nih.figshare.com/collections/iCite_Database_Snapshots_NIH_Open_Citation_Collection_/4586573/36">dump of NIH Open Citation Collection dated November 2022</a>.</p>
+                                                        <p>Available in <a href="https://doi.org/10.6084/m9.figshare.21747461.v4">CSV (metadata)</a> and <a href="https://doi.org/10.6084/m9.figshare.21747536.v4">JSON-LD (metadata and provenance)</a> formats.</p>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <p><strong>2023-02-24:</strong> Adds the metadata from the <a href="https://archive.org/details/datacite_dump_20211022">last dump of DataCite dated 22 October 2021</a>.</p>
+                                                        <p>Available in <a href="https://doi.org/10.6084/m9.figshare.21747461.v3">CSV (metadata)</a> and <a href="https://doi.org/10.6084/m9.figshare.21747536.v3">JSON-LD (metadata and provenance)</a> formats.</p>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <p><strong>2022-12-20:</strong> Based on open references to works with DOIs within the Crossref dump dated December 2022.</p>
+                                                        <p>Available in <a href="https://doi.org/10.6084/m9.figshare.21747461.v2">CSV (metadata)</a> and <a href="https://doi.org/10.6084/m9.figshare.21747536.v2">JSON-LD (metadata and provenance)</a> formats.</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Index section -->
+                    <section id="index" class="py-3">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <h3 class="mb-0">
+                                    <span class="oc-purple">Open</span><span class="oc-blue">Citations</span> Index
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <p>The <span class="oc-purple">Open</span><span class="oc-blue">Citations</span> Index stores OMID-to-OMID references representing all the references gathered from several sources.</p>
+                                
+                                <h4 class="mt-4">Most recent OpenCitations Index data dump - July 2024</h4>
+                                <p>Released on 2024-07-01, this dataset adds the citation data contained in the <a href="https://api.crossref.org/snapshots/monthly/2024/03">Crossref dump dated March 2024</a>.</p>
+                                
+                                <div class="card mb-4 bg-light">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Key Statistics</h5>
+                                        <div class="row">
+                                            <div class="col-12 text-center py-3">
+                                                <h3 class="oc-blue">2 Billion+</h3>
+                                                <p class="mb-0">Citations</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h5>Download Files</h5>
+                                <div class="table-responsive mb-4">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Type and format</th>
+                                                <th>Archive</th>
+                                                <th>Size</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Citation data (CSV)</td>
+                                                <td><a href="https://doi.org/10.6084/m9.figshare.24356626.v3" class="btn btn-sm btn-outline-primary">Download ZIP</a></td>
+                                                <td>179 GB (28.1 GB zipped)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Citation data (N-Triple)</td>
+                                                <td><a href="https://doi.org/10.6084/m9.figshare.24369136.v3" class="btn btn-sm btn-outline-primary">Download ZIP</a></td>
+                                                <td>1.5 TB (65.6 GB zipped)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Citation data (Scholix)</td>
+                                                <td><a href="https://doi.org/10.6084/m9.figshare.24416749.v3" class="btn btn-sm btn-outline-primary">Download ZIP</a></td>
+                                                <td>1.8 TB (39 GB zipped)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Provenance data (CSV)</td>
+                                                <td><a href="https://doi.org/10.6084/m9.figshare.24417733.v3" class="btn btn-sm btn-outline-primary">Download ZIP</a></td>
+                                                <td>329 GB (15 GB zipped)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Provenance data (N-Triple)</td>
+                                                <td><a href="https://doi.org/10.6084/m9.figshare.24417736.v3" class="btn btn-sm btn-outline-primary">Download ZIP</a></td>
+                                                <td>2.6 TB (83 GB zipped)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <h5>Additional Files</h5>
+                                <div class="table-responsive mb-4">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 65%">Type and format</th>
+                                                <th>Archive</th>
+                                                <th>Size</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Citation data sources' info (N-Triple): information regarding the data source collection (e.g., COCI, DOCI, POCI, etc) of all the citation data</td>
+                                                <td><a href="https://doi.org/10.6084/m9.figshare.24427051.v3" class="btn btn-sm btn-outline-primary">Download ZIP</a></td>
+                                                <td>364 GB (20.4 GB zipped)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Citation count data (CSV): the number of incoming citations to each bibliographic entity (identified by an OMID) in OpenCitations Index</td>
+                                                <td><a href="https://doi.org/10.6084/m9.figshare.24747375.v3" class="btn btn-sm btn-outline-primary">Download ZIP</a></td>
+                                                <td>1.1 GB (0.4 GB zipped)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <h5 class="mt-4">Previous dumps</h5>
+                                <div class="accordion" id="index-previous-dumps">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#index-dump1">
+                                                Dump created on 2023-11-29
+                                            </button>
+                                        </h2>
+                                        <div id="index-dump1" class="accordion-collapse collapse" data-bs-parent="#index-previous-dumps">
+                                            <div class="accordion-body">
+                                                <p>Available in <a href="https://doi.org/10.6084/m9.figshare.24356626.v2">CSV (citation data)</a>, <a href="https://doi.org/10.6084/m9.figshare.24369136.v2">N-Triple (citation data)</a>, <a href="https://doi.org/10.6084/m9.figshare.24416749.v2">SCHOLIX (citation data)</a>, <a href="https://doi.org/10.6084/m9.figshare.24417733.v2">CSV (provenance data)</a>, and <a href="https://doi.org/10.6084/m9.figshare.24417736.v2">N-Triple (provenance data)</a>.</p>
+                                                <p>In addition, a <a href="https://doi.org/10.6084/m9.figshare.24427051.v2">N-Triple dump</a> containing information regarding the data source collection, and a <a href="https://doi.org/10.6084/m9.figshare.24747375.v1">citation count dump</a> with the number of incoming citations to each bibliographic entity (identified by an OMID).</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#index-dump2">
+                                                Dump created on 2023-10-25
+                                            </button>
+                                        </h2>
+                                        <div id="index-dump2" class="accordion-collapse collapse" data-bs-parent="#index-previous-dumps">
+                                            <div class="accordion-body">
+                                                <p>Available in <a href="https://doi.org/10.6084/m9.figshare.24356626.v1">CSV (citation data)</a>, <a href="https://doi.org/10.6084/m9.figshare.24369136.v1">N-Triple (citation data)</a>, <a href="https://doi.org/10.6084/m9.figshare.24416749.v1">SCHOLIX (citation data)</a>, <a href="https://doi.org/10.6084/m9.figshare.24417733.v1">CSV (provenance data)</a>, and <a href="https://doi.org/10.6084/m9.figshare.24417736.v1">N-Triple (provenance data)</a>.</p>
+                                                <p>In addition, a <a href="https://doi.org/10.6084/m9.figshare.24427051.v1">N-Triple dump</a> containing information regarding the data source collection.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+        
+
+        <!-- footer start -->
+        $:render.common.footer()
+        <!-- footer end -->
+        
+        <!-- Bootstrap JS -->
+        <script src="/static/bootstrap-533/js/bootstrap.bundle.min.js"></script>
+       
+        <!-- Cookies handler
+        ================================================== -->
+        <script src="/static/js/cookies.js"></script>
+    </body>
+</html>
