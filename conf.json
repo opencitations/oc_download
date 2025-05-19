@@ -2,7 +2,7 @@
   "html": "html-template",
   "log_dir": "./log/",
   "oc_services_templates": "https://github.com/opencitations/oc_services_templates",
-  "download_base_url": "download.opencitations.net",
+  "base_url": "download.opencitations.net",
   "sync": {
     "folders": [
         "static/css",

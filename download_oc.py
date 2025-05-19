@@ -14,7 +14,8 @@ with open("conf.json") as f:
 
 # Docker ENV variables
 download_config = {
-    "download_base_url": os.getenv("DOWNLOAD_BASE_URL", c["download_base_url"]),
+    "base_url": os.getenv("BASE_URL", c["base_url"]),
+    "log_dir": os.getenv("LOG_DIR", c["log_dir"]),
     "sync_enabled": os.getenv("SYNC_ENABLED", "false").lower() == "true"
 }
 
@@ -42,7 +43,7 @@ urls = (
 )
 
 # Set the web logger
-web_logger = WebLogger("download.opencitations.net", c["log_dir"], [
+web_logger = WebLogger(download_config["base_url"], download_config["log_dir"], [
     "REMOTE_ADDR",        # The IP address of the visitor
     "HTTP_USER_AGENT",    # The browser type of the visitor
     "HTTP_REFERER",       # The URL of the page that called your program
@@ -94,7 +95,7 @@ class Main:
 if __name__ == "__main__":
     # Add startup log
     print("Starting DOWNLOAD OpenCitations web application...")
-    print(f"Configuration: Base URL={download_config['download_base_url']}")
+    print(f"Configuration: Base URL={download_config['base_url']}")
     print(f"Sync enabled: {download_config['sync_enabled']}")
     
     # Parse command line arguments

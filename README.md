@@ -6,13 +6,15 @@ This repository contains the DOWNLOAD service for OpenCitations.
 
 The service requires the following environment variables. These values take precedence over the ones defined in `conf.json`:
 
-- `DOWNLOAD_BASE_URL`: Base URL for the DOWNLOAD endpoint
+- `BASE_URL`: Base URL for the DOWNLOAD endpoint
+- `LOG_DIR`: Directory path where log files will be stored
 - `SYNC_ENABLED`: Enable/disable static files synchronization (default: false)
 
 For instance:
 
 ```env
-DOWNLOAD_BASE_URL=download.opencitations.net
+BASE_URL=download.opencitations.net
+LOG_DIR=/home/dir/log/
 SYNC_ENABLED=true
 ```
 
@@ -24,6 +26,7 @@ The application can synchronize static files from a GitHub repository. This conf
 
 ```json
 {
+  [...]
   "oc_services_templates": "https://github.com/opencitations/oc_services_templates",
   "sync": {
     "folders": [
@@ -82,8 +85,9 @@ FROM python:3.11-slim
 
 # Define environment variables with default values
 # These can be overridden during container runtime
-ENV DOWNLOAD_BASE_URL="download.opencitations.net" \
-    SYNC_ENABLED="true"
+ENV BASE_URL="download.opencitations.net" \
+    SYNC_ENABLED="true" \
+    LOG_DIR="/your/dir/log"
 
 # Install system dependencies required for Python package compilation
 # We clean up apt cache after installation to reduce image size
@@ -92,8 +96,7 @@ RUN apt-get update && \
     git \
     python3-dev \
     build-essential && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get clean
 
 # Set the working directory for our application
 WORKDIR /website
