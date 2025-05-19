@@ -13,7 +13,7 @@ with open("conf.json") as f:
 
 
 # Docker ENV variables
-download_config = {
+env_config = {
     "base_url": os.getenv("BASE_URL", c["base_url"]),
     "log_dir": os.getenv("LOG_DIR", c["log_dir"]),
     "sync_enabled": os.getenv("SYNC_ENABLED", "false").lower() == "true"
@@ -43,7 +43,7 @@ urls = (
 )
 
 # Set the web logger
-web_logger = WebLogger(download_config["base_url"], download_config["log_dir"], [
+web_logger = WebLogger(env_config["base_url"], env_config["log_dir"], [
     "HTTP_X_FORWARDED_FOR", # The IP address of the client
     "REMOTE_ADDR",          # The IP address of internal balancer
     "HTTP_USER_AGENT",      # The browser type of the visitor
@@ -96,8 +96,8 @@ class Main:
 if __name__ == "__main__":
     # Add startup log
     print("Starting DOWNLOAD OpenCitations web application...")
-    print(f"Configuration: Base URL={download_config['base_url']}")
-    print(f"Sync enabled: {download_config['sync_enabled']}")
+    print(f"Configuration: Base URL={env_config['base_url']}")
+    print(f"Sync enabled: {env_config['sync_enabled']}")
     
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='DOWNLOAD OpenCitations web application')
@@ -116,7 +116,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     print(f"Starting on port: {args.port}")
     
-    if args.sync_static or download_config["sync_enabled"]:
+    if args.sync_static or env_config["sync_enabled"]:
         # Run sync if either --sync-static is provided (local testing) 
         # or SYNC_ENABLED=true (Docker environment)
         print("Static sync is enabled")
