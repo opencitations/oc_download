@@ -44,13 +44,14 @@ urls = (
 
 # Set the web logger
 web_logger = WebLogger(download_config["base_url"], download_config["log_dir"], [
-    "REMOTE_ADDR",        # The IP address of the visitor
-    "HTTP_USER_AGENT",    # The browser type of the visitor
-    "HTTP_REFERER",       # The URL of the page that called your program
-    "HTTP_HOST",          # The hostname of the page being attempted
-    "REQUEST_URI",        # The interpreted pathname of the requested document
-                          # or CGI (relative to the document root)
-    "HTTP_AUTHORIZATION",  # Access token
+    "HTTP_X_FORWARDED_FOR", # The IP address of the client
+    "REMOTE_ADDR",          # The IP address of internal balancer
+    "HTTP_USER_AGENT",      # The browser type of the visitor
+    "HTTP_REFERER",         # The URL of the page that called your program
+    "HTTP_HOST",            # The hostname of the page being attempted
+    "REQUEST_URI",          # The interpreted pathname of the requested document
+                            # or CGI (relative to the document root)
+    "HTTP_AUTHORIZATION",   # Access token
     ],
     # comment this line only for test purposes
      {"REMOTE_ADDR": ["130.136.130.1", "130.136.2.47", "127.0.0.1"]}

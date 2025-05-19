@@ -87,7 +87,7 @@ FROM python:3.11-slim
 # These can be overridden during container runtime
 ENV BASE_URL="download.opencitations.net" \
     SYNC_ENABLED="true" \
-    LOG_DIR="/your/dir/log"
+    LOG_DIR="/mnt/log_dir/oc_download"
 
 # Install system dependencies required for Python package compilation
 # We clean up apt cache after installation to reduce image size
