@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
+import argparse
+import hashlib
+import json
 import os
 import shutil
-from git import Repo
 import tempfile
-import argparse
-import json
-import hashlib
-from typing import Dict, List, Tuple, Set
+from typing import List, Set
+
+from git import Repo
 
 # Load the configuration file
 with open("conf.json") as f:

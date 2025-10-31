@@ -181,15 +181,15 @@ wheels = [
 
 [[package]]
 name = "cheroot"
-version = "11.0.0"
+version = "11.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jaraco-functools" },
     { name = "more-itertools" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f4/01/5ef06df932a974d016ab9d7f93e78740b572c4020016794fd4799cdc09c6/cheroot-11.0.0.tar.gz", hash = "sha256:dd414eda6bdb15140e864bc1d1c9625030375d14cbe0b290092867368924a52f", size = 182140, upload-time = "2025-09-21T13:55:28.662Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/09/01/30c083f66da622b747891680e3131cd6e207903d002185ac4e72c65a03b1/cheroot-11.1.1.tar.gz", hash = "sha256:b93428476884c802ea817497633259254bb3fcf2450934bbb8f1a7a099738a31", size = 185168, upload-time = "2025-11-03T22:16:03.946Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8f/56/8808b1ae899b7d3976b401fd4e29c3cfc97bc3d46a7973f76393218cca1f/cheroot-11.0.0-py3-none-any.whl", hash = "sha256:0e3aea62026b5e70df6e63259e345bdcff404daf4b8a11204f46d4234959fccd", size = 106397, upload-time = "2025-09-21T13:55:27.312Z" },
+    { url = "https://files.pythonhosted.org/packages/a8/2f/d88695c553bed1ef318a4214ec8ae7518027d3aa5a54d756fc5729e17ad4/cheroot-11.1.1-py3-none-any.whl", hash = "sha256:39c95d162681ed938679f645bca33abfa523b862a2393d630e3376b7426c7a36", size = 108470, upload-time = "2025-11-03T22:16:02.681Z" },
 ]
 
 [[package]]
