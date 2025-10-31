@@ -18,7 +18,12 @@ RUN apt-get update && \
     apt-get install -y \
     git \
     python3-dev \
-    build-essential
+    build-essential \
+    curl && \
+    apt-get clean
+
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+ENV PATH="/root/.cargo/bin:$PATH"
 
 # Set the working directory for our application
 WORKDIR /website
@@ -27,11 +32,11 @@ WORKDIR /website
 # The code is already present in the repo, no need to git clone
 COPY . .
 
-# Install Python dependencies from requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Install Python dependencies using uv
+RUN uv sync --frozen --no-dev
 
 # Expose the port that our service will listen on
 EXPOSE 8080
 
 # Start the application with gunicorn instead of python directly
-CMD ["gunicorn", "-c", "gunicorn.conf.py", "download_oc:application"]
+CMD ["uv", "run", "gunicorn", "-c", "gunicorn.conf.py", "download_oc:application"]
