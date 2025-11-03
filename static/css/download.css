@@ -1,5 +1,12 @@
 /* OpenCitations Download Page Styles */
 
+:root {
+    --oc-purple: #9931FC;
+    --oc-blue: #2D22DE;
+    --oc-light-purple: rgba(153, 49, 252, 0.03);
+    --oc-hover-blue: rgba(45, 34, 222, 0.05);
+}
+
 /* General page styles */
 .py-5 {
     padding-top: 3rem !important;
@@ -75,13 +82,14 @@
 
 /* Download buttons in tables */
 .btn-outline-primary {
-    border-color: var(--oc-purple);
-    color: var(--oc-purple);
-}
-
-.btn-outline-primary:hover {
-    background-color: var(--oc-purple);
-    color: white;
+    --bs-btn-color: var(--oc-purple);
+    --bs-btn-border-color: var(--oc-purple);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--oc-purple);
+    --bs-btn-hover-border-color: var(--oc-purple);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--oc-purple);
+    --bs-btn-active-border-color: var(--oc-purple);
 }
 
 /* Accordion styling */
