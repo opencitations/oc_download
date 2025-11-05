@@ -58,8 +58,11 @@ When static sync is enabled (via `--sync-static` or `SYNC_ENABLED=true`), the ap
 
 This project uses [uv](https://docs.astral.sh/uv/) for dependency management.
 
-First, install dependencies:
+First, install uv package manager and project dependencies:
 ```bash
+# Install uv package manager
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# Install project dependencies
 uv sync
 ```
 
@@ -82,7 +85,7 @@ uv run download_oc.py --sync-static --port 8085
 
 The application supports the following command line arguments:
 
-- `--sync-static`: Synchronize static files at startup and enable periodic sync (every 30 minutes)
+- `--sync-static`: Synchronize static files at startup
 - `--port PORT`: Specify the port to run the application on (default: 8080)
 
 ### Production Deployment (Docker)
@@ -123,12 +126,10 @@ RUN apt-get update && \
     apt-get install -y \
     git \
     python3-dev \
-    build-essential \
-    curl && \
-    apt-get clean
+    build-essential
 
 # Install uv package manager
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+RUN wget -qO- https://astral.sh/uv/install.sh | sh
 ENV PATH="/root/.cargo/bin:$PATH"
 
 # Set the working directory for our application

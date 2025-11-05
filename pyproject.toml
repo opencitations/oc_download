@@ -2,7 +2,7 @@
 name = "oc-download"
 version = "0.1.0"
 description = "OpenCitations download service - Web portal for downloading OpenCitations datasets"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.12"
 dependencies = [
     "apscheduler==3.10.1",
     "gevent>=25.9.1",

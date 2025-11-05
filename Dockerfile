@@ -18,11 +18,9 @@ RUN apt-get update && \
     apt-get install -y \
     git \
     python3-dev \
-    build-essential \
-    curl && \
-    apt-get clean
+    build-essential
 
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+RUN wget -qO- https://astral.sh/uv/install.sh | sh
 ENV PATH="/root/.cargo/bin:$PATH"
 
 # Set the working directory for our application
