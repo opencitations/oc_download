@@ -17,12 +17,15 @@ ENV PYTHONUNBUFFERED=1
 RUN apt-get update && \
     apt-get install -y \
     git \
-    wget \
+    curl \
+    ca-certificates \
     python3-dev \
     build-essential
 
-RUN wget -qO- https://astral.sh/uv/install.sh | sh
-ENV PATH="/root/.cargo/bin:$PATH"
+# Install uv for dependency management
+ADD https://astral.sh/uv/install.sh /uv-installer.sh
+RUN sh /uv-installer.sh && rm /uv-installer.sh
+ENV PATH="/root/.local/bin:$PATH"
 
 # Set the working directory for our application
 WORKDIR /website
