@@ -56,26 +56,36 @@ When static sync is enabled (via `--sync-static` or `SYNC_ENABLED=true`), the ap
 
 ### Local Development
 
+This project uses [uv](https://docs.astral.sh/uv/) for dependency management.
+
+First, install uv package manager and project dependencies:
+```bash
+# Install uv package manager
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# Install project dependencies
+uv sync
+```
+
 For local development and testing, the application uses the built-in web.py HTTP server:
 
 Examples:
 ```bash
 # Run with default settings
-python3 download_oc.py
+uv run download_oc.py
 
 # Run with static sync enabled
-python3 download_oc.py --sync-static
+uv run download_oc.py --sync-static
 
 # Run on custom port
-python3 download_oc.py --port 8085
+uv run download_oc.py --port 8085
 
 # Run with both options
-python3 download_oc.py --sync-static --port 8085
+uv run download_oc.py --sync-static --port 8085
 ```
 
 The application supports the following command line arguments:
 
-- `--sync-static`: Synchronize static files at startup and enable periodic sync (every 30 minutes)
+- `--sync-static`: Synchronize static files at startup
 - `--port PORT`: Specify the port to run the application on (default: 8080)
 
 ### Production Deployment (Docker)
@@ -90,7 +100,7 @@ When running in Docker/Kubernetes, the application uses **Gunicorn** as the WSGI
 
 The Docker container automatically uses Gunicorn and is configured with static sync enabled by default.
 
-> **Note**: The application code automatically detects the execution environment. When run with `python3 download_oc.py`, it uses the built-in web.py server. When run with Gunicorn (as in Docker), it uses the WSGI interface.
+> **Note**: The application code automatically detects the execution environment. When run with `uv run download_oc.py`, it uses the built-in web.py server. When run with Gunicorn (as in Docker), it uses the WSGI interface.
 You can customize the Gunicorn server configuration by modifying the `gunicorn.conf.py` file.
 
 ### Dockerfile
@@ -107,7 +117,6 @@ ENV BASE_URL="download.opencitations.net" \
     SYNC_ENABLED="true" \
     LOG_DIR="/mnt/log_dir/oc_download"
 
-
 # Ensure Python output is unbuffered
 ENV PYTHONUNBUFFERED=1
 
@@ -119,18 +128,21 @@ RUN apt-get update && \
     python3-dev \
     build-essential
 
+# Install uv package manager
+RUN wget -qO- https://astral.sh/uv/install.sh | sh
+ENV PATH="/root/.cargo/bin:$PATH"
+
 # Set the working directory for our application
 WORKDIR /website
 
-# Clone the specific branch (download) from the repository
-# The dot at the end means clone into current directory
-RUN git clone --single-branch --branch main https://github.com/opencitations/oc_download .
+# Copy the application code
+COPY . .
 
-# Install Python dependencies from requirements.txt
-RUN pip install -r requirements.txt
+# Install Python dependencies using uv
+RUN uv sync --frozen --no-dev
 
 # Expose the port that our service will listen on
 EXPOSE 8080
 
-# Start the application with gunicorn for production
-CMD ["gunicorn", "-c", "gunicorn.conf.py", "download_oc:application"]
+# Start the application with gunicorn via uv
+CMD ["uv", "run", "gunicorn", "-c", "gunicorn.conf.py", "download_oc:application"]

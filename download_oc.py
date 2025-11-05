@@ -1,11 +1,12 @@
-import web
-import os
+import argparse
 import json
-#from src.wl import WebLogger
-import requests
+import os
 import subprocess
 import sys
-import argparse
+
+import web
+
+#from src.wl import WebLogger
 
 # Load the configuration file
 with open("conf.json") as f:
