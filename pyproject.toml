@@ -1,7 +1,7 @@
 [project]
 name = "oc-download"
 version = "0.1.0"
-description = "Add your description here"
+description = "OpenCitations download service - Web portal for downloading OpenCitations datasets"
 requires-python = ">=3.11"
 dependencies = [
     "apscheduler==3.10.1",
