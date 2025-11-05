@@ -2,6 +2,10 @@
 
 This repository contains the DOWNLOAD service for OpenCitations.
 
+## Contributing
+
+This repository uses [Conventional Commits](https://www.conventionalcommits.org/) for versioning and automated releases. Commit messages must follow the semantic commit format.
+
 ### Environment Variables
 
 The service requires the following environment variables. These values take precedence over the ones defined in `conf.json`:

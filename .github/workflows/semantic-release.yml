@@ -1,0 +1,70 @@
+name: Semantic Release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    name: Semantic release
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, '[release]')
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check for existing tags and initialize if needed
+        run: |
+          # Check if any tags exist
+          if ! git describe --tags --abbrev=0 2>/dev/null; then
+            echo "No tags found in repository"
+
+            # Read current version from docker_version.txt
+            CURRENT_VERSION=$(cat docker_version.txt | tr -d '\n\r' | xargs)
+            # Remove any non-semver suffix
+            SEMVER_VERSION=$(echo "$CURRENT_VERSION" | grep -oE '^[0-9]+\.[0-9]+\.[0-9]+')
+
+            echo "Creating initial tag v${SEMVER_VERSION} from docker_version.txt"
+
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+
+            git tag -a "v${SEMVER_VERSION}" -m "Initial release v${SEMVER_VERSION}"
+            git push origin "v${SEMVER_VERSION}"
+
+            echo "Initial tag created successfully"
+          else
+            echo "Tags already exist, semantic-release will handle versioning"
+          fi
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      - name: Install semantic-release
+        run: |
+          npm install -g semantic-release
+          npm install -g @semantic-release/git
+          npm install -g @semantic-release/changelog
+          npm install -g @semantic-release/exec
+          npm install -g conventional-changelog-conventionalcommits
+
+      - name: Create Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
+
+      - name: Summary
+        run: |
+          LATEST_VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "none")
+          echo "Release workflow completed"
+          echo "Latest version: $LATEST_VERSION"
