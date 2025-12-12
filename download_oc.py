@@ -40,6 +40,7 @@ active = {
 # URL Mapping
 urls = (
     "/", "Main",
+    "/health", "Health",
     "/static/(.*)", "Static",
     '/favicon.ico', 'Favicon'
 )
@@ -95,6 +96,12 @@ class Favicon:
         )
         protocol = 'https' if is_https else 'http'
         raise web.seeother(f"{protocol}://{web.ctx.host}/static/favicon.ico")
+    
+class Health:
+    """Lightweight health check endpoint for Kubernetes probes"""
+    def GET(self):
+        web.header('Content-Type', 'application/json')
+        return '{"status": "ok"}'
     
 class Static:
     def GET(self, name):
