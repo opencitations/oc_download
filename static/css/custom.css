@@ -229,3 +229,11 @@ footer {
 .nav-link-main::after {
   display: none !important;
 }
+
+/* Fixing sparql yasque table visualization */
+.yasqe_queryButton {
+  margin-right: 20px!important;
+}
+.CodeMirror-lines {
+  padding-right: 105px!important;
+}
