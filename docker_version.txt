@@ -1,1 +1,2 @@
-1.2.5sync
+DEPRECATED
+Use the version inside the pyproject.toml file
