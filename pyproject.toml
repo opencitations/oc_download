@@ -1,6 +1,6 @@
 [project]
 name = "oc-download"
-version = "1.3.1"
+version = "1.3.2"
 description = "OpenCitations download service - Web portal for downloading OpenCitations datasets"
 requires-python = ">=3.11,<3.12"
 dependencies = [
