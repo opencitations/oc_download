@@ -92,6 +92,29 @@
     --bs-btn-active-border-color: var(--oc-purple);
 }
 
+/* Status badges (e.g. "Kubernetes ready") */
+.badge-dot {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 9px 2px 7px;
+    border-radius: 999px;
+    background: rgba(47, 174, 87, 0.1);
+    color: #2fae57;
+    font-size: 12px;
+    font-weight: 590;
+    letter-spacing: 0.01em;
+    vertical-align: 1px;
+}
+
+.badge-dot .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2fae57;
+    flex-shrink: 0;
+}
+
 /* Accordion styling */
 .accordion-button:not(.collapsed) {
     background-color: rgba(153, 49, 252, 0.05);

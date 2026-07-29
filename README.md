@@ -103,46 +103,15 @@ The Docker container automatically uses Gunicorn and is configured with static s
 > **Note**: The application code automatically detects the execution environment. When run with `uv run download_oc.py`, it uses the built-in web.py server. When run with Gunicorn (as in Docker), it uses the WSGI interface.
 You can customize the Gunicorn server configuration by modifying the `gunicorn.conf.py` file.
 
-### Dockerfile
-
-You can change these variables in the Dockerfile:
-
-```dockerfile
-# Base image: Python slim for a lightweight container
-FROM python:3.11-slim
-
-# Define environment variables with default values
-# These can be overridden during container runtime
-ENV BASE_URL="download.opencitations.net" \
-    SYNC_ENABLED="true" \
-    LOG_DIR="/mnt/log_dir/oc_download"
-
-# Ensure Python output is unbuffered
-ENV PYTHONUNBUFFERED=1
-
-# Install system dependencies required for Python package compilation
-# We clean up apt cache after installation to reduce image size
-RUN apt-get update && \
-    apt-get install -y \
-    git \
-    python3-dev \
-    build-essential
-
-# Install uv package manager
-RUN wget -qO- https://astral.sh/uv/install.sh | sh
-ENV PATH="/root/.cargo/bin:$PATH"
-
-# Set the working directory for our application
-WORKDIR /website
-
-# Copy the application code
-COPY . .
-
-# Install Python dependencies using uv
-RUN uv sync --frozen --no-dev
-
-# Expose the port that our service will listen on
-EXPOSE 8080
-
-# Start the application with gunicorn via uv
-CMD ["uv", "run", "gunicorn", "-c", "gunicorn.conf.py", "download_oc:application"]
+### Building the Docker image locally
+ 
+The repository already includes a `Dockerfile`, so there is nothing to write by hand. The image is built from your local checkout: the Dockerfile copies the local source code into the container (`COPY . .`) and installs the dependencies with uv from the lockfile. This means that any changes you make to the code will be included in the image, which is handy to test modifications before pushing them.
+ 
+From the repository root:
+ 
+```bash
+docker build -t oc_download:local .
+docker run -p 8080:8080 oc_download:local
+```
+ 
+The container starts with Gunicorn, exactly as in production. The environment variables (`BASE_URL`, `LOG_DIR`, `SPARQL_ENDPOINT_INDEX`, `SPARQL_ENDPOINT_META`, `SYNC_ENABLED`) have default values defined in the Dockerfile and can be overridden at runtime with `docker run -e VAR=value`
