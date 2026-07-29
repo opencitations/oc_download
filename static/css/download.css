@@ -71,7 +71,7 @@
 /* Table styling */
 .table-responsive {
     border-radius: 8px;
-    overflow: hidden;
+    overflow-x: auto;
 }
 
 .table th {
@@ -162,5 +162,10 @@
     /* Better touch targets for mobile */
     .btn {
         padding: 0.5rem 1rem;
+    }
+
+    /* Hide "Kubernetes ready" badge on mobile */
+    .badge-dot {
+        display: none;
     }
 }
