@@ -163,4 +163,13 @@
     .btn {
         padding: 0.5rem 1rem;
     }
+
+    /* Hide "Kubernetes ready" badge on mobile */
+    .badge-dot {
+        display: none;
+    }
+
+    .fix-big-row {
+        margin-left: 0 !important;
+    }
 }
