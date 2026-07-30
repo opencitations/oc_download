@@ -71,7 +71,7 @@
 /* Table styling */
 .table-responsive {
     border-radius: 8px;
-    overflow-x: auto;
+    overflow: hidden;
 }
 
 .table th {
