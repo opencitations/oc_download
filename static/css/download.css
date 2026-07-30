@@ -168,4 +168,8 @@
     .badge-dot {
         display: none;
     }
+
+    .fix-big-row {
+        margin-left: 0 !important;
+    }
 }
