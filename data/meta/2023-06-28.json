@@ -1,0 +1,13 @@
+{
+  "description": "Adds the metadata from the [dump of NIH Open Citation Collection dated November 2022](https://nih.figshare.com/collections/iCite_Database_Snapshots_NIH_Open_Citation_Collection_/4586573/36).",
+  "files": [
+    {
+      "name": "Metadata (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.21747461.v4"
+    },
+    {
+      "name": "Metadata and provenance (JSON-LD)",
+      "url": "https://doi.org/10.6084/m9.figshare.21747536.v4"
+    }
+  ]
+}

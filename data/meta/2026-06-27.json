@@ -1,0 +1,48 @@
+{
+  "description": "Compared to the previous version, includes metadata related to citing and cited bibliographic resources added from the [February 2026 version of Crossref](https://api.crossref.org/snapshots/monthly/2026/02/all.json.tar.gz) and the [August 2025 version of JaLC](https://api.japanlinkcenter.org/). It also includes an alignment with [OpenAlex identifiers](https://openalex.s3.amazonaws.com/browse.html) and introduces [OUTCITE](https://doi.org/10.5281/zenodo.18172742) and [Matilda](https://matilda.science) as new sources.",
+  "stats": [
+    {
+      "value": "147M+",
+      "label": "Bibliographic entities"
+    },
+    {
+      "value": "422M+",
+      "label": "Authors"
+    },
+    {
+      "value": "2.3M+",
+      "label": "Publication venues"
+    }
+  ],
+  "stats_note": "3,673,399 editors and 115,504,540 publishers (counted by roles, without disambiguating individuals)",
+  "files": [
+    {
+      "name": "Metadata database (OpenLink Virtuoso)",
+      "url": "https://doi.org/10.5281/zenodo.21001553",
+      "format": "7z",
+      "size": "31.2 GB",
+      "uncompressed": "187 GB",
+      "badge": "Kubernetes ready"
+    },
+    {
+      "name": "Metadata (CSV)",
+      "url": "https://doi.org/10.5281/zenodo.20965426",
+      "format": "7z",
+      "size": "8.4 GB",
+      "uncompressed": "56 GB"
+    },
+    {
+      "name": "Metadata and provenance (RDF)",
+      "url": "https://doi.org/10.5281/zenodo.20965956",
+      "format": "7z",
+      "size": "45.7 GB",
+      "uncompressed": "72 GB"
+    },
+    {
+      "name": "Provenance database (QLever)",
+      "url": "https://doi.org/10.5281/zenodo.20970244",
+      "format": "7z",
+      "size": "41.6 GB"
+    }
+  ]
+}

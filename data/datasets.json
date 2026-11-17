@@ -1,0 +1,16 @@
+[
+  {
+    "id": "meta",
+    "name": "Meta",
+    "color": "purple",
+    "tagline": "Bibliographic metadata for all publications in the OpenCitations Index",
+    "description": "The OpenCitations Meta database stores and delivers bibliographic metadata for all publications involved in the OpenCitations Index."
+  },
+  {
+    "id": "index",
+    "name": "Index",
+    "color": "blue",
+    "tagline": "OMID-to-OMID references representing all citations from multiple sources",
+    "description": "The OpenCitations Index stores OMID-to-OMID references representing all the references gathered from several sources."
+  }
+]

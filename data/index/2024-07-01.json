@@ -1,0 +1,64 @@
+{
+  "description": "This dataset adds the citation data contained in the [Crossref dump dated March 2024](https://api.crossref.org/snapshots/monthly/2024/03).",
+  "stats": [
+    {
+      "value": "2 Billion+",
+      "label": "Citations"
+    }
+  ],
+  "files": [
+    {
+      "name": "Citation data (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.24356626.v3",
+      "format": "zip",
+      "size": "28.1 GB",
+      "uncompressed": "179 GB"
+    },
+    {
+      "name": "Citation data (N-Triple)",
+      "url": "https://doi.org/10.6084/m9.figshare.24369136.v3",
+      "format": "zip",
+      "size": "65.6 GB",
+      "uncompressed": "1.5 TB"
+    },
+    {
+      "name": "Citation data (Scholix)",
+      "url": "https://doi.org/10.6084/m9.figshare.24416749.v3",
+      "format": "zip",
+      "size": "39 GB",
+      "uncompressed": "1.8 TB"
+    },
+    {
+      "name": "Provenance data (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.24417733.v3",
+      "format": "zip",
+      "size": "15 GB",
+      "uncompressed": "329 GB"
+    },
+    {
+      "name": "Provenance data (N-Triple)",
+      "url": "https://doi.org/10.6084/m9.figshare.24417736.v3",
+      "format": "zip",
+      "size": "83 GB",
+      "uncompressed": "2.6 TB"
+    }
+  ],
+  "additional_files": [
+    {
+      "name": "Citation data sources' info (N-Triple)",
+      "url": "https://doi.org/10.6084/m9.figshare.24427051.v3",
+      "format": "zip",
+      "size": "20.4 GB",
+      "uncompressed": "364 GB",
+      "note": "Information regarding the data source collection (e.g., COCI, DOCI, POCI, etc) of all the citation data"
+    },
+    {
+      "name": "Citation count data (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.24747375.v3",
+      "format": "zip",
+      "size": "0.4 GB",
+      "uncompressed": "1.1 GB",
+      "note": "The number of incoming citations to each bibliographic entity (identified by an OMID) in OpenCitations Index"
+    }
+  ]
+}

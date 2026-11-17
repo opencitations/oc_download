@@ -1,0 +1,34 @@
+{
+  "description": "This dataset enhances its previous version by incorporating new data from the [Crossref November 2024 Dump](https://api.crossref.org/snapshots/monthly/2024/11), as well as the November 2024 dump of [JaLC (Japan Link Center)](https://japanlinkcenter.org/top/).",
+  "stats": [
+    {
+      "value": "121M+",
+      "label": "Bibliographic entities"
+    },
+    {
+      "value": "368M+",
+      "label": "Authors"
+    },
+    {
+      "value": "698K+",
+      "label": "Publication venues"
+    }
+  ],
+  "stats_note": "2,718,222 editors and 101,612,475 publishers (counted by roles, without disambiguating individuals)",
+  "files": [
+    {
+      "name": "Metadata (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.21747461.v11",
+      "format": "tar",
+      "size": "12 GB",
+      "uncompressed": "48 GB"
+    },
+    {
+      "name": "Metadata and provenance (RDF)",
+      "url": "https://doi.org/10.6084/m9.figshare.21747536.v8",
+      "format": "tar.gz",
+      "size": "47 GB",
+      "uncompressed": "145 GB"
+    }
+  ]
+}

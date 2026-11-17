@@ -1,0 +1,81 @@
+{
+  "description": "This dataset adds the citation data contained in the [Crossref dump dated September 2025](https://api.crossref.org/snapshots/monthly/2025/09), as well as the [DataCite Public Data File of April 2024](https://archive.org/details/datacite-2024-04-17).",
+  "stats": [
+    {
+      "value": "2.4 Billion+",
+      "label": "Citations",
+      "detail": "2,422,432,262"
+    }
+  ],
+  "files": [
+    {
+      "name": "Citations database (QLever)",
+      "url": "https://doi.org/10.6084/m9.figshare.31306081.v1",
+      "format": "7z",
+      "size": "69 GB",
+      "uncompressed": "140 GB"
+    },
+    {
+      "name": "Citations database RDF data",
+      "url": "https://doi.org/10.6084/m9.figshare.31353691.v2",
+      "format": "7z"
+    },
+    {
+      "name": "Citation data (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.24356626.v7",
+      "format": "zip",
+      "size": "32 GB"
+    },
+    {
+      "name": "Citation data (N-Triple)",
+      "url": "https://doi.org/10.6084/m9.figshare.24369136.v7",
+      "format": "zip",
+      "size": "75 GB"
+    },
+    {
+      "name": "Citation data (Scholix)",
+      "url": "https://doi.org/10.6084/m9.figshare.24416749.v7",
+      "format": "zip",
+      "size": "46 GB"
+    },
+    {
+      "name": "Provenance data (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.24417733.v6",
+      "format": "zip",
+      "size": "24 GB",
+      "uncompressed": "542 GB"
+    },
+    {
+      "name": "Provenance data (N-Triple)",
+      "url": "https://doi.org/10.6084/m9.figshare.24417736.v6",
+      "format": "zip",
+      "size": "144 GB",
+      "uncompressed": "4.5 TB"
+    }
+  ],
+  "additional_files": [
+    {
+      "name": "Citation data sources' info (N-Triple)",
+      "url": "https://doi.org/10.6084/m9.figshare.24427051.v6",
+      "format": "zip",
+      "size": "29 GB",
+      "uncompressed": "480 GB",
+      "note": "Information regarding the data source collection (e.g., COCI, DOCI, POCI, etc) of all the citation data"
+    },
+    {
+      "name": "Citation count data (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.24199089.v6",
+      "format": "zip",
+      "size": "0.6 GB",
+      "uncompressed": "3 GB",
+      "note": "The number of incoming citations to each bibliographic entity (identified by a DOI) in OpenCitations Index"
+    },
+    {
+      "name": "OpenCitations OMID Index for Bibliographic Resources (BR) and Responsible Agents (RA) (CSV)",
+      "url": "https://doi.org/10.5281/zenodo.18980639",
+      "format": "zip",
+      "size": "2 GB",
+      "uncompressed": "10 GB"
+    }
+  ]
+}

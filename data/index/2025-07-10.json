@@ -1,0 +1,65 @@
+{
+  "description": "This dataset adds the citation data contained in the [Crossref dump dated March 2025](https://api.crossref.org/snapshots/monthly/2025/03).",
+  "stats": [
+    {
+      "value": "2.2 Billion+",
+      "label": "Citations",
+      "detail": "2,216,426,689"
+    }
+  ],
+  "files": [
+    {
+      "name": "Citation data (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.24356626.v6",
+      "format": "zip",
+      "size": "38.8 GB",
+      "uncompressed": "242 GB"
+    },
+    {
+      "name": "Citation data (N-Triple)",
+      "url": "https://doi.org/10.6084/m9.figshare.24369136.v6",
+      "format": "zip",
+      "size": "87.4 GB",
+      "uncompressed": "2.1 TB"
+    },
+    {
+      "name": "Citation data (Scholix)",
+      "url": "https://doi.org/10.6084/m9.figshare.24416749.v6",
+      "format": "zip",
+      "size": "45 GB",
+      "uncompressed": "2.1 TB"
+    },
+    {
+      "name": "Provenance data (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.24417733.v5",
+      "format": "zip",
+      "size": "20 GB",
+      "uncompressed": "454 GB"
+    },
+    {
+      "name": "Provenance data (N-Triple)",
+      "url": "https://doi.org/10.6084/m9.figshare.24417736.v5",
+      "format": "zip",
+      "size": "105 GB",
+      "uncompressed": "3.4 TB"
+    }
+  ],
+  "additional_files": [
+    {
+      "name": "Citation data sources' info (N-Triple)",
+      "url": "https://doi.org/10.6084/m9.figshare.24427051.v5",
+      "format": "zip",
+      "size": "25.7 GB",
+      "uncompressed": "426 GB",
+      "note": "Information regarding the data source collection (e.g., COCI, DOCI, POCI, etc) of all the citation data"
+    },
+    {
+      "name": "Citation data sources' info (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.28677293.v2",
+      "format": "zip",
+      "size": "23 GB",
+      "uncompressed": "104 GB",
+      "note": "Information regarding the data source collection (e.g., COCI, DOCI, POCI, etc) of all the citation data"
+    }
+  ]
+}

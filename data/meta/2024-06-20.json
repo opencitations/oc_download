@@ -1,0 +1,37 @@
+{
+  "description": "Compared to the previous dump, this one adds the metadata contained in the [Crossref dump dated March 2024](https://api.crossref.org/snapshots/monthly/2023/03).",
+  "stats": [
+    {
+      "value": "116M+",
+      "label": "Bibliographic entities"
+    },
+    {
+      "value": "348M+",
+      "label": "Authors"
+    },
+    {
+      "value": "715K+",
+      "label": "Publication venues"
+    },
+    {
+      "value": "245K+",
+      "label": "Publishers"
+    }
+  ],
+  "files": [
+    {
+      "name": "Metadata (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.21747461.v9",
+      "format": "tar.gz",
+      "size": "11 GB",
+      "uncompressed": "47 GB"
+    },
+    {
+      "name": "Metadata and provenance (JSON-LD)",
+      "url": "https://doi.org/10.6084/m9.figshare.21747536.v7",
+      "format": "tar.gz",
+      "size": "44 GB",
+      "uncompressed": "145 GB"
+    }
+  ]
+}

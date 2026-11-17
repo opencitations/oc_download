@@ -1,175 +1,534 @@
-/* OpenCitations Download Page Styles */
+/* OpenCitations download page.
+   Every rule is scoped under .dl-page so it cannot leak into the shared
+   header and footer. */
 
-:root {
-    --oc-purple: #9931FC;
-    --oc-blue: #2D22DE;
-    --oc-light-purple: rgba(153, 49, 252, 0.03);
-    --oc-hover-blue: rgba(45, 34, 222, 0.05);
+.dl-page {
+    --dl-purple: #9931FC;
+    --dl-blue: #2D22DE;
+    --dl-ink: #1d2130;
+    --dl-muted: #5f6675;
+    --dl-line: #e4e6ee;
+    --dl-soft: #f6f7fb;
+    --dl-accent: var(--dl-purple);
+    --dl-accent-soft: rgba(153, 49, 252, 0.08);
+    --dl-accent-line: rgba(153, 49, 252, 0.28);
+    max-width: 1080px;
+    color: var(--dl-ink);
+    text-align: left;
+    line-height: 1.55;
 }
 
-/* General page styles */
-.py-5 {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
+.dl-page .dl-accent-blue {
+    --dl-accent: var(--dl-blue);
+    --dl-accent-soft: rgba(45, 34, 222, 0.07);
+    --dl-accent-line: rgba(45, 34, 222, 0.26);
 }
 
-.mb-4 {
-    margin-bottom: 1.5rem !important;
+.dl-page p {
+    margin: 0 0 0.75rem;
 }
 
-.mb-5 {
-    margin-bottom: 3rem !important;
+/* ---------- Page heading ---------- */
+
+.dl-hero {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-/* Cards styling */
-.card {
+.dl-hero__title {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.6rem;
+}
+
+.dl-hero__title span:last-child {
+    font-weight: 300;
+    color: var(--dl-ink);
+}
+
+.dl-hero__lead {
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+}
+
+.dl-hero__sources {
+    color: var(--dl-muted);
+    font-size: 0.95rem;
+}
+
+.dl-hero__sources a,
+.dl-dump__text a {
+    color: var(--dl-accent);
+    text-underline-offset: 2px;
+}
+
+.dl-hero__sources a:hover,
+.dl-dump__text a:hover {
+    color: var(--dl-ink);
+}
+
+/* ---------- Dataset cards (same look as the previous page) ---------- */
+
+.dl-page .download-card {
+    background: white;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
 
-.hover-effect:hover {
-    transform: translateY(-5px);
-    transition: transform 0.3s ease;
-}
-
-/* Download card styles for desktop */
-.download-card {
-    background: white;
-    border: none;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
-}
-
-.download-card .card-footer {
+.dl-page .download-card .card-footer {
     background: white;
     border-top: none;
 }
 
-/* Styled buttons for download cards */
-.download-card .btn-primary {
+.dl-page .download-card .btn-primary {
     padding: 0.5rem 1.5rem;
     font-weight: 500;
     border-radius: 6px;
     transition: all 0.2s ease;
-    background-color: #28a745 !important; /* Verde chiaro */
+    background-color: #28a745 !important;
     border-color: #28a745 !important;
     color: white;
 }
 
-.download-card .btn-primary:hover {
+.dl-page .download-card .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #218838 !important; /* Verde più scuro all'hover */
+    background-color: #218838 !important;
     border-color: #1e7e34 !important;
 }
 
-/* Statistics card styling */
-.card.bg-light {
-    background-color: #f8f9fa !important;
-    border: none;
+/* ---------- Dataset section ---------- */
+
+.dl-dataset {
+    background: #fff;
+    border: 1px solid var(--dl-line);
+    border-top: 4px solid var(--dl-accent);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-bottom: 2.5rem;
+    scroll-margin-top: 1rem;
 }
 
-/* Table styling */
-.table-responsive {
+.dl-dataset__head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--dl-line);
+}
+
+.dl-dataset__intro {
+    flex: 1 1 380px;
+    min-width: 0;
+}
+
+.dl-dataset__title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+}
+
+.dl-dataset__intro p {
+    color: var(--dl-muted);
+    margin-bottom: 0;
+}
+
+/* ---------- Version selector ---------- */
+
+.dl-version {
+    flex: 0 1 340px;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    background: var(--dl-accent-soft);
+}
+
+.dl-version__label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--dl-accent);
+    margin-bottom: 0.35rem;
+}
+
+.dl-page .dl-version__select {
+    border-color: var(--dl-accent-line);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.dl-page .dl-version__select:focus {
+    border-color: var(--dl-accent);
+    box-shadow: 0 0 0 0.2rem var(--dl-accent-soft);
+}
+
+.dl-version__count {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.82rem;
+    color: var(--dl-muted);
+}
+
+/* The selector needs JavaScript: without it every dump is listed in full. */
+html:not(.js) .dl-version,
+html:not(.js) .dl-dump__notice {
+    display: none;
+}
+
+html.js .dl-dump:not(.is-active) {
+    display: none;
+}
+
+html:not(.js) .dl-dump + .dl-dump {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--dl-line);
+}
+
+/* ---------- A dump ---------- */
+
+.dl-dump {
+    scroll-margin-top: 1rem;
+}
+
+.dl-dump__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.dl-dump__title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.dl-dump__date {
+    color: var(--dl-muted);
+    font-size: 0.92rem;
+    margin-left: auto;
+}
+
+.dl-tag {
+    display: inline-block;
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.5;
+    background: #eceef3;
+    color: #4b5160;
+}
+
+.dl-tag--latest {
+    background: rgba(47, 174, 87, 0.12);
+    color: #1f7a3d;
+}
+
+.dl-page .dl-dump__notice {
+    padding: 0.6rem 0.9rem;
+    margin-bottom: 1rem;
     border-radius: 8px;
-    overflow: hidden;
+    background: #fff8e6;
+    color: #6b4e00;
+    font-size: 0.92rem;
 }
 
-.table th {
-    background-color: var(--oc-purple);
-    color: white;
+.dl-dump__notice a {
+    color: inherit;
     font-weight: 600;
 }
 
-/* Download buttons in tables */
-.btn-outline-primary {
-    --bs-btn-color: var(--oc-purple);
-    --bs-btn-border-color: var(--oc-purple);
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: var(--oc-purple);
-    --bs-btn-hover-border-color: var(--oc-purple);
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: var(--oc-purple);
-    --bs-btn-active-border-color: var(--oc-purple);
+.dl-dump__text {
+    max-width: 78ch;
 }
 
-/* Status badges (e.g. "Kubernetes ready") */
-.badge-dot {
+/* ---------- Key statistics ---------- */
+
+.dl-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 0.75rem;
+    margin: 1.25rem 0 0.5rem;
+}
+
+.dl-stat {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    padding: 0.9rem 1rem;
+    border-radius: 10px;
+    background: var(--dl-soft);
+    text-align: center;
+}
+
+.dl-stat dt {
+    font-weight: 400;
+    font-size: 0.92rem;
+    color: var(--dl-muted);
+}
+
+.dl-stat dd {
+    margin: 0;
+    font-size: 1.65rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--dl-accent);
+}
+
+.dl-stat__detail {
+    font-variant-numeric: tabular-nums;
+}
+
+.dl-stat__detail::before {
+    content: "\00b7";
+    margin: 0 0.35rem;
+}
+
+.dl-page .dl-stats__note {
+    font-size: 0.85rem;
+    color: var(--dl-muted);
+    margin-bottom: 0;
+    text-align: center;
+}
+
+/* ---------- File tables ---------- */
+
+.dl-files__title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 1.75rem 0 0.5rem;
+}
+
+.dl-files {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    /* fixed widths keep the columns of every table of the page aligned */
+    table-layout: fixed;
+}
+
+.dl-files .dl-col-format {
+    width: 6.5rem;
+}
+
+.dl-files .dl-col-size {
+    width: 7rem;
+}
+
+.dl-files .dl-col-uncompressed {
+    width: 8.5rem;
+}
+
+.dl-files thead th {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 2px solid var(--dl-accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--dl-muted);
+    white-space: nowrap;
+}
+
+.dl-files tbody th,
+.dl-files tbody td {
+    padding: 0.7rem 0.75rem;
+    border-bottom: 1px solid var(--dl-line);
+    vertical-align: middle;
+}
+
+.dl-files tbody tr:hover {
+    background: var(--dl-soft);
+}
+
+.dl-files tbody th {
+    font-weight: 500;
+}
+
+.dl-files .dl-num {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.dl-files .dl-none {
+    color: #a3a8b4;
+}
+
+.dl-files .dl-action {
+    width: 11.5rem;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.dl-file__note {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--dl-muted);
+}
+
+.dl-chip {
+    display: inline-block;
+    padding: 0.05rem 0.5rem;
+    border: 1px solid var(--dl-line);
+    border-radius: 6px;
+    background: #fff;
+    font-family: SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    color: #3d4350;
+}
+
+.dl-badge {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    padding: 2px 9px 2px 7px;
+    margin-left: 0.35rem;
+    padding: 1px 9px 1px 7px;
     border-radius: 999px;
-    background: rgba(47, 174, 87, 0.1);
-    color: #2fae57;
-    font-size: 12px;
-    font-weight: 590;
-    letter-spacing: 0.01em;
+    background: rgba(47, 174, 87, 0.12);
+    color: #1f7a3d;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
     vertical-align: 1px;
 }
 
-.badge-dot .dot {
+.dl-badge::before {
+    content: "";
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background: #2fae57;
-    flex-shrink: 0;
 }
 
-/* Accordion styling */
-.accordion-button:not(.collapsed) {
-    background-color: rgba(153, 49, 252, 0.05);
-    color: var(--oc-purple);
+.dl-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-width: 7.5rem;
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--dl-accent);
+    border-radius: 8px;
+    color: var(--dl-accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.accordion-button:focus {
-    border-color: rgba(153, 49, 252, 0.2);
-    box-shadow: 0 0 0 0.25rem rgba(153, 49, 252, 0.1);
+.dl-btn:hover,
+.dl-btn:focus-visible {
+    background: var(--dl-accent);
+    color: #fff;
 }
 
-/* Mobile specific styles */
-@media (max-width: 768px) {
-    /* Card styles for mobile */
-    .download-card {
-        background: rgba(153, 49, 252, 0.1) !important;
+.dl-page a:focus-visible,
+.dl-page select:focus-visible {
+    outline: 2px solid var(--dl-accent);
+    outline-offset: 2px;
+}
+
+/* ---------- Small screens: each file becomes a block ---------- */
+
+@media (max-width: 767.98px) {
+    /* the shared custom.css removes every container padding on small screens */
+    .dl-page.container {
+        padding: 2rem 1rem !important;
+    }
+
+    /* on small screens the cards take the colour of their dataset */
+    .dl-page .download-card {
+        background: var(--dl-accent-soft) !important;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-        border: 1px solid rgba(153, 49, 252, 0.2) !important;
+        border: 1px solid var(--dl-accent-line) !important;
     }
-    
-    .download-card.index-card {
-        background: rgba(45, 34, 222, 0.1) !important;
-        border: 1px solid rgba(45, 34, 222, 0.2) !important;
-    }
-    
-    .download-card .card-body {
+
+    .dl-page .download-card .card-body {
         padding: 1.5rem !important;
     }
-    
-    .download-card .card-footer {
-        background: rgba(153, 49, 252, 0.05) !important;
-        border-top: 1px solid rgba(153, 49, 252, 0.1) !important;
-    }
-    
-    .download-card.index-card .card-footer {
-        background: rgba(45, 34, 222, 0.05) !important;
-        border-top: 1px solid rgba(45, 34, 222, 0.1) !important;
-    }
-    
-    /* Improved table responsiveness */
-    .table-responsive {
-        margin-bottom: 1.5rem;
-    }
-    
-    /* Better touch targets for mobile */
-    .btn {
-        padding: 0.5rem 1rem;
+
+    .dl-page .download-card .card-footer {
+        background: transparent;
+        border-top: 1px solid var(--dl-accent-soft);
     }
 
-    /* Hide "Kubernetes ready" badge on mobile */
-    .badge-dot {
+    .dl-dataset {
+        padding: 1.1rem;
+    }
+
+    .dl-version {
+        flex-basis: 100%;
+    }
+
+    .dl-dump__date {
+        margin-left: 0;
+        flex-basis: 100%;
+    }
+
+    .dl-files,
+    .dl-files tbody,
+    .dl-files tr,
+    .dl-files th,
+    .dl-files td {
+        display: block;
+    }
+
+    /* keep the column names available to screen readers */
+    .dl-files thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+    }
+
+    .dl-files tbody tr {
+        padding: 0.85rem 0;
+        border-bottom: 1px solid var(--dl-line);
+    }
+
+    .dl-files tbody th,
+    .dl-files tbody td {
+        padding: 0;
+        border: 0;
+    }
+
+    .dl-files tbody td[data-label] {
+        display: inline-block;
+        margin: 0.35rem 1rem 0 0;
+        font-size: 0.9rem;
+    }
+
+    .dl-files tbody td[data-label]::before {
+        content: attr(data-label) ": ";
+        color: var(--dl-muted);
+    }
+
+    .dl-files tbody td.dl-empty {
         display: none;
     }
 
-    .fix-big-row {
-        margin-left: 0 !important;
+    .dl-files .dl-action {
+        width: auto;
+        margin-top: 0.65rem;
+        text-align: left;
+    }
+
+    .dl-btn {
+        width: 100%;
+        padding: 0.55rem 0.85rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dl-page .download-card,
+    .dl-btn {
+        transition: none;
     }
 }

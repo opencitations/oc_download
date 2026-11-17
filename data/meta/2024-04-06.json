@@ -1,0 +1,13 @@
+{
+  "description": "Compared to the previous dump, this one incorporates OpenAlex IDs, leveraging data from the OpenAlex dump.",
+  "files": [
+    {
+      "name": "Metadata (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.21747461.v8"
+    },
+    {
+      "name": "Metadata and provenance (RDF)",
+      "url": "https://doi.org/10.6084/m9.figshare.21747536.v6"
+    }
+  ]
+}
