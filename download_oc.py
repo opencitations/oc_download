@@ -6,6 +6,8 @@ import sys
 
 import web
 
+from src.dumps import load_datasets
+
 #from src.wl import WebLogger
 
 # Load the configuration file
@@ -17,8 +19,13 @@ with open("conf.json") as f:
 env_config = {
     "base_url": os.getenv("BASE_URL", c["base_url"]),
     "log_dir": os.getenv("LOG_DIR", c["log_dir"]),
+    "data_dir": os.getenv("DATA_DIR", c.get("data_dir", "data")),
     "sync_enabled": os.getenv("SYNC_ENABLED", "false").lower() == "true"
 }
+
+# Datasets and dumps shown on the page (one JSON file per dump, see README).
+# Loaded once at startup: invalid data stops the service with a clear error.
+datasets = load_datasets(env_config["data_dir"])
 
 
 active = {
@@ -106,10 +113,16 @@ class Health:
 class Static:
     def GET(self, name):
         """Serve static files"""
-        static_dir = "static"
-        file_path = os.path.join(static_dir, name)
+        static_dir = os.path.realpath("static")
 
-        if not os.path.exists(file_path):
+        # Resolve the requested path and refuse anything that ends up outside
+        # the static folder (e.g. /static/../conf.json) or that is not a file
+        try:
+            file_path = os.path.realpath(os.path.join(static_dir, name))
+            inside = os.path.commonpath([static_dir, file_path]) == static_dir
+        except ValueError:
+            inside = False
+        if not inside or not os.path.isfile(file_path):
             raise web.notfound()
 
         # Content types
@@ -137,7 +150,7 @@ class Main:
     def GET(self):
         #web_logger.mes()
         current_subdomain = web.ctx.host.split('.')[0].lower()
-        return render.download(active="", sp_title="", current_subdomain=current_subdomain, render=render)
+        return render.download(active="", sp_title="", current_subdomain=current_subdomain, render=render, datasets=datasets)
 
 
 # Run the application on localhost for testing/development

@@ -9,6 +9,7 @@ The service requires the following environment variables. These values take prec
 - `BASE_URL`: Base URL for the DOWNLOAD endpoint
 - `LOG_DIR`: Directory path where log files will be stored
 - `SYNC_ENABLED`: Enable/disable static files synchronization (default: false)
+- `DATA_DIR`: Directory with the dump descriptions shown on the page (default: `data`, see [Managing the dumps](#managing-the-dumps))
 
 For instance:
 
@@ -19,6 +20,81 @@ SYNC_ENABLED=true
 ```
 
 > **Note**: When running with Docker, environment variables always override the corresponding values in `conf.json`. If an environment variable is not set, the application will fall back to the values defined in `conf.json`.
+
+## Managing the dumps
+
+The download page is generated from the JSON files in `data/`. Publishing a dump never requires editing the HTML template.
+
+```
+data/
+├── datasets.json         the datasets (Meta, Index), in the order they appear on the page
+├── meta/
+│   ├── 2026-06-27.json   one file per dump, named after its release date
+│   └── ...
+└── index/
+    └── ...
+```
+
+In each folder the most recent file is shown as the latest dump; the others are listed in the "Dump version" selector of the dataset. Every dump has its own address (for instance `/#meta-2026-01-20`), while `/#meta` and `/#index` always open the latest one.
+
+### Adding a new dump
+
+1. Copy the most recent file of the dataset and name the copy after the release date of the new dump (`YYYY-MM-DD.json`).
+2. Update description, statistics, links and sizes in the copy.
+3. Check the result with `python3 -m src.dumps`.
+4. Bump the version in `pyproject.toml` to release a new Docker image.
+
+The previous dump needs no change: it moves to the version selector by itself. To publish one more file of an existing dump, add an entry to its `files` (or `additional_files`) list.
+
+### Fields of a dump file
+
+```json
+{
+  "description": "Adds the metadata from the [February 2026 version of Crossref](https://api.crossref.org/snapshots/monthly/2026/02/all.json.tar.gz).",
+  "stats": [
+    { "value": "147M+", "label": "Bibliographic entities" }
+  ],
+  "stats_note": "3,673,399 editors and 115,504,540 publishers",
+  "files": [
+    {
+      "name": "Metadata (CSV)",
+      "url": "https://doi.org/10.5281/zenodo.20965426",
+      "format": "7z",
+      "size": "8.4 GB",
+      "uncompressed": "56 GB"
+    }
+  ],
+  "additional_files": []
+}
+```
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `files` | yes | The files of the dump, shown under "Download files" |
+| `additional_files` | no | Same format as `files`, shown under "Additional files" |
+| `description` | no | Free text. Links are written as `[label](https://...)`, HTML is not accepted |
+| `stats` | no | Key figures: `value` and `label`, plus an optional `detail` (e.g. the exact count) |
+| `stats_note` | no | Small note under the statistics |
+| `label` | no | Name of the dump; by default month and year of the release date (`June 2026`) |
+
+Each entry of `files` and `additional_files` has:
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `name` | yes | What the file contains, e.g. `Metadata (CSV)` |
+| `url` | yes | Link to the archive (DOI) |
+| `format` | no | Archive format: `7z`, `zip`, `tar.gz`, ... |
+| `size` | no | Size of the download |
+| `uncompressed` | no | Size once extracted |
+| `badge` | no | Short green label next to the name, e.g. `Kubernetes ready` |
+| `note` | no | One line of explanation under the name |
+| `repository` | no | Name on the download button; by default taken from the link (Zenodo, Figshare, Internet Archive) |
+
+Columns with no value in a table are hidden, so older dumps can list just names and links.
+
+### Validation
+
+`python3 -m src.dumps` checks every file and reports the first problem with the file name and the field involved (invalid JSON, misspelled or missing fields, wrong file names, links without `https://`). The same check runs in the GitHub workflow and when the service starts: with invalid data the build fails and the service does not start, instead of publishing a broken page.
 
 ### Static Files Synchronization
 

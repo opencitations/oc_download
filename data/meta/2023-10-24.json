@@ -1,0 +1,13 @@
+{
+  "description": "Adds the metadata from [OpenAIRE](https://doi.org/10.5281/zenodo.7845968) and the [Crossref dump dated September 2023](https://api.crossref.org/snapshots/monthly/2023/09).",
+  "files": [
+    {
+      "name": "Metadata (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.21747461.v5"
+    },
+    {
+      "name": "Metadata and provenance (JSON-LD)",
+      "url": "https://doi.org/10.6084/m9.figshare.21747536.v5"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "description": "Compared to the previous version, includes metadata from the [April 2025 version of Crossref](https://api.crossref.org/snapshots/monthly/2025/04) and the [December 2024 dump of JaLC](https://japanlinkcenter.org/).",
+  "stats": [
+    {
+      "value": "124M+",
+      "label": "Bibliographic entities"
+    },
+    {
+      "value": "376M+",
+      "label": "Authors"
+    },
+    {
+      "value": "1M+",
+      "label": "Publication venues"
+    }
+  ],
+  "stats_note": "2,765,927 editors and 103,928,927 publishers (counted by roles, without disambiguating individuals)",
+  "files": [
+    {
+      "name": "Metadata (CSV)",
+      "url": "https://doi.org/10.5281/zenodo.15625651",
+      "format": "tar.gz",
+      "size": "12 GB",
+      "uncompressed": "49 GB"
+    },
+    {
+      "name": "Metadata database",
+      "url": "https://doi.org/10.5281/zenodo.15855111",
+      "format": "7z",
+      "size": "39 GB",
+      "uncompressed": "187 GB",
+      "badge": "Kubernetes ready"
+    },
+    {
+      "name": "Metadata and provenance (RDF)",
+      "url": "https://doi.org/10.5281/zenodo.17483301",
+      "format": "7z",
+      "size": "46.5 GB",
+      "uncompressed": "66 GB"
+    },
+    {
+      "name": "Provenance database (RDF)",
+      "url": "https://doi.org/10.6084/m9.figshare.29543783.v1",
+      "format": "7z",
+      "size": "154 GB",
+      "uncompressed": "1 TB"
+    }
+  ]
+}

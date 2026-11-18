@@ -1,0 +1,9 @@
+{
+  "description": "Compared to the previous dump, this one adds the metadata contained in the [Japan Link Center (JaLC)](https://api.japanlinkcenter.org/).",
+  "files": [
+    {
+      "name": "Metadata (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.21747461.v7"
+    }
+  ]
+}

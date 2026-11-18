@@ -1,0 +1,48 @@
+{
+  "description": "Compared to the previous version, includes metadata related to citing and cited bibliographic resources added in the [September 2025 version of Crossref](https://api.crossref.org/snapshots/monthly/2025/09/all.json.tar.gz), as well as the [DataCite Public Data File 2025](https://datafiles.datacite.org/datafiles/public-2025).",
+  "stats": [
+    {
+      "value": "129M+",
+      "label": "Bibliographic entities"
+    },
+    {
+      "value": "389M+",
+      "label": "Authors"
+    },
+    {
+      "value": "1.3M+",
+      "label": "Publication venues"
+    }
+  ],
+  "stats_note": "2,862,406 editors and 106,791,171 publishers (counted by roles, without disambiguating individuals)",
+  "files": [
+    {
+      "name": "Metadata (CSV)",
+      "url": "https://doi.org/10.5281/zenodo.18324537",
+      "format": "tar.gz",
+      "size": "13 GB",
+      "uncompressed": "51 GB"
+    },
+    {
+      "name": "Metadata database (OpenLink Virtuoso)",
+      "url": "https://doi.org/10.5281/zenodo.18330418",
+      "format": "7z",
+      "size": "42 GB",
+      "uncompressed": "190 GB"
+    },
+    {
+      "name": "Metadata and provenance (RDF)",
+      "url": "https://doi.org/10.5281/zenodo.18352502",
+      "format": "7z",
+      "size": "48 GB",
+      "uncompressed": "69 GB"
+    },
+    {
+      "name": "Provenance database (OpenLink Virtuoso)",
+      "url": "https://doi.org/10.6084/m9.figshare.29543783.v3",
+      "format": "7z",
+      "size": "144 GB",
+      "uncompressed": "1 TB"
+    }
+  ]
+}

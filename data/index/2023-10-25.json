@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "name": "Citation data (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.24356626.v1"
+    },
+    {
+      "name": "Citation data (N-Triple)",
+      "url": "https://doi.org/10.6084/m9.figshare.24369136.v1"
+    },
+    {
+      "name": "Citation data (Scholix)",
+      "url": "https://doi.org/10.6084/m9.figshare.24416749.v1"
+    },
+    {
+      "name": "Provenance data (CSV)",
+      "url": "https://doi.org/10.6084/m9.figshare.24417733.v1"
+    },
+    {
+      "name": "Provenance data (N-Triple)",
+      "url": "https://doi.org/10.6084/m9.figshare.24417736.v1"
+    }
+  ],
+  "additional_files": [
+    {
+      "name": "Citation data sources' info (N-Triple)",
+      "url": "https://doi.org/10.6084/m9.figshare.24427051.v1",
+      "note": "Information regarding the data source collection (e.g., COCI, DOCI, POCI, etc) of all the citation data"
+    }
+  ]
+}

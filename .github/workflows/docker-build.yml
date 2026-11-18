@@ -17,7 +17,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      
+
+    # Stops the workflow when a file in data/ is malformed (see README)
+    - name: Validate dump data
+      run: python3 -m src.dumps
+
     - name: Read version from pyproject.toml
       id: get_version
       run: |

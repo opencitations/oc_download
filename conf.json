@@ -1,6 +1,7 @@
 {
   "html": "html-template",
   "log_dir": "./log/",
+  "data_dir": "data",
   "oc_services_templates": "https://github.com/opencitations/oc_services_templates",
   "base_url": "download.opencitations.net",
   "sync": {
